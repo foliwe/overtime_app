@@ -1,12 +1,12 @@
-@user = User.create(email: "test@test.com",
-										password: "asdfasdf",
-										password_confirmation: "asdfasdf",
+@user = User.create(email: "test@example.com",
+										password: "password",
+										password_confirmation: "password",
 										first_name: "Jon",
 										last_name: "Snow",
 										phone: "4322386131")
 
 
-@user1 = User.create(email: "test@example.com",
+@user1 = User.create(email: "test1@example.com",
 										password: "password",
 										password_confirmation: "password",
 										first_name: "Kunta",
@@ -15,9 +15,9 @@
 
 puts "2 User created"
 
-AdminUser.create(email: "admin@test.com",
-									password: "asdfasdf",
-									password_confirmation: "asdfasdf",
+AdminUser.create(email: "admin@example.com",
+									password: "password",
+									password_confirmation: "password",
 									first_name: "Admin",
 									last_name: "Name",
 									phone: "4322386131")
@@ -34,12 +34,17 @@ end
 end
 
 
-50.times do |audit_log|
+
 	AuditLog.create!(user_id: @user.id, status: 0, start_date: (Date.today - 6.days))
-end
+	AuditLog.create!(user_id: @user.id, status: 0, start_date: (Date.today - 13.days))
+	AuditLog.create!(user_id: @user.id, status: 0, start_date: (Date.today - 20.days))
 
-20.times do |audit_log|
+
 	AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 6.days))
-end
+	AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 13.days))
+	AuditLog.create!(user_id: @user1.id, status: 0, start_date: (Date.today - 20.days))
 
-puts "50 audit logs have been created"
+
+
+
+puts "3 audit logs have been created"

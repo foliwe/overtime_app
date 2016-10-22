@@ -10,7 +10,7 @@ class AuditLog < ActiveRecord::Base
 
   private
 
-    def set_defaults
-      self.start_date ||= Date.today - 6.days
-    end
+	def set_defaults
+	  self.start_date ||= Date.today - 6.days
+	end
 end

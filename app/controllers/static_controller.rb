@@ -7,4 +7,6 @@ class StaticController < ApplicationController
 		@pending_audit_confirmations = current_user.audit_logs.pending
 	end
 	end
+
+	
 end
